@@ -33,21 +33,21 @@ const ProjectsPage = () => {
     <Layout>
       <PageHero
         title="Our Projects"
-        subtitle="A showcase of excellence — explore our completed and ongoing projects"
+        subtitle="A portfolio of precision — explore our finest completed works"
         backgroundImage={heroHome}
       />
 
       <section className="section-padding bg-background">
         <div className="container-custom">
-          <SectionHeading badge="Portfolio" title="Featured Projects" />
+          <SectionHeading badge="Portfolio" title="Featured Projects" subtitle="Each project represents our commitment to excellence and meticulous craftsmanship" />
 
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
+          <div className="flex flex-wrap justify-center gap-3 mb-14">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
-                  filter === cat ? "bg-primary text-primary-foreground" : "bg-secondary text-foreground hover:bg-primary/10"
+                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                  filter === cat ? "bg-primary text-primary-foreground shadow-lg" : "bg-secondary text-foreground hover:bg-primary/5 border border-border/50"
                 }`}
               >
                 {cat}
@@ -55,25 +55,26 @@ const ProjectsPage = () => {
             ))}
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {filtered.map((project, i) => (
-              <div key={i} className="group bg-background rounded-2xl overflow-hidden shadow-lg hover-lift border border-border/50">
-                <div className="relative h-56 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-semibold">
+              <div key={i} className="group premium-card overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-6">
+                    <div>
+                      <span className="text-primary-foreground/70 text-xs tracking-widest uppercase">{project.category}</span>
+                      <div className="flex items-center gap-1 text-primary-foreground text-sm mt-1"><MapPin className="w-3 h-3" /> {project.location}</div>
+                    </div>
+                  </div>
+                  <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-primary/90 text-primary-foreground text-xs font-semibold backdrop-blur-sm">
                     {project.category}
                   </div>
                 </div>
-                <div className="p-5">
+                <div className="p-6">
                   <h3 className="font-heading font-semibold text-foreground text-lg">{project.title}</h3>
                   <div className="flex items-center justify-between mt-2">
                     <span className="flex items-center gap-1 text-sm text-muted-foreground"><MapPin className="w-3 h-3" /> {project.location}</span>
-                    <span className="text-sm font-medium text-accent">{project.sqft} sqft</span>
+                    <span className="text-sm font-medium text-primary">{project.sqft} sqft</span>
                   </div>
                 </div>
               </div>
@@ -84,10 +85,10 @@ const ProjectsPage = () => {
 
       <section className="navy-section section-padding">
         <div className="container-custom text-center">
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-primary-foreground mb-4">Have a Project in Mind?</h2>
-          <p className="text-primary-foreground/70 mb-8 max-w-xl mx-auto">Let's discuss your vision and bring it to life</p>
+          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-primary-foreground mb-5">Have a Project in Mind?</h2>
+          <p className="text-primary-foreground/50 mb-10 max-w-xl mx-auto leading-relaxed">Let's discuss your vision and bring it to life with precision and excellence</p>
           <Link to="/contact">
-            <Button variant="hero" size="xl">Start Your Project <ArrowRight className="w-5 h-5" /></Button>
+            <Button variant="hero-outline" size="xl">Start Your Project <ArrowRight className="w-5 h-5" /></Button>
           </Link>
         </div>
       </section>

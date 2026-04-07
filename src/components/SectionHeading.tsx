@@ -8,10 +8,10 @@ interface SectionHeadingProps {
 
 const SectionHeading = ({ badge, title, subtitle, light = false, center = true }: SectionHeadingProps) => {
   return (
-    <div className={`mb-12 lg:mb-16 ${center ? "text-center" : ""}`}>
+    <div className={`mb-16 lg:mb-20 ${center ? "text-center" : ""}`}>
       {badge && (
-        <span className={`inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-4 ${
-          light ? "bg-primary-foreground/10 text-primary-foreground" : "bg-accent/10 text-accent"
+        <span className={`inline-block px-4 py-1.5 rounded-full text-[11px] font-semibold tracking-[0.2em] uppercase mb-5 ${
+          light ? "bg-primary-foreground/10 text-primary-foreground/80" : "bg-primary/5 text-primary/70 border border-primary/10"
         }`}>
           {badge}
         </span>
@@ -22,8 +22,8 @@ const SectionHeading = ({ badge, title, subtitle, light = false, center = true }
         {title}
       </h2>
       {subtitle && (
-        <p className={`mt-4 text-lg max-w-2xl ${center ? "mx-auto" : ""} ${
-          light ? "text-primary-foreground/70" : "text-muted-foreground"
+        <p className={`mt-5 text-lg max-w-2xl leading-relaxed ${center ? "mx-auto" : ""} ${
+          light ? "text-primary-foreground/60" : "text-muted-foreground"
         }`}>
           {subtitle}
         </p>
