@@ -18,23 +18,23 @@
     --primary: 216 78% 15%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 216 20% 96%;
+    --secondary: 220 20% 97%;
     --secondary-foreground: 216 78% 15%;
 
-    --muted: 216 20% 96%;
-    --muted-foreground: 216 10% 45%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 30 90% 55%;
+    --accent: 224 76% 33%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 216 20% 90%;
-    --input: 216 20% 90%;
+    --border: 220 14% 90%;
+    --input: 220 14% 90%;
     --ring: 216 78% 15%;
 
-    --radius: 0.75rem;
+    --radius: 0.875rem;
 
     --navy: 216 78% 15%;
     --navy-light: 216 60% 25%;
@@ -59,19 +59,19 @@
     --card-foreground: 0 0% 95%;
     --popover: 216 85% 8%;
     --popover-foreground: 0 0% 95%;
-    --primary: 30 90% 55%;
+    --primary: 224 76% 48%;
     --primary-foreground: 0 0% 100%;
     --secondary: 216 30% 15%;
     --secondary-foreground: 0 0% 95%;
     --muted: 216 30% 15%;
     --muted-foreground: 216 10% 60%;
-    --accent: 30 90% 55%;
+    --accent: 224 76% 48%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     --border: 216 30% 18%;
     --input: 216 30% 18%;
-    --ring: 30 90% 55%;
+    --ring: 224 76% 48%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -99,7 +99,7 @@
 
 @layer components {
   .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24;
+    @apply px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32;
   }
 
   .container-custom {
@@ -107,7 +107,7 @@
   }
 
   .glass-card {
-    @apply bg-background/80 backdrop-blur-xl border border-border/50 rounded-2xl shadow-xl;
+    @apply bg-background/80 backdrop-blur-xl border border-border/50 rounded-2xl shadow-2xl;
   }
 
   .navy-section {
@@ -119,7 +119,7 @@
   }
 
   .hover-lift {
-    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl;
   }
 
   .animate-on-scroll {
@@ -128,6 +128,10 @@
 
   .animate-on-scroll.visible {
     @apply opacity-100 translate-y-0;
+  }
+
+  .premium-card {
+    @apply bg-background rounded-2xl border border-border/30 shadow-lg hover:shadow-2xl transition-all duration-500;
   }
 }
 

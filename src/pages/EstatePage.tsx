@@ -8,7 +8,7 @@ import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
 import project4 from "@/assets/project-4.jpg";
-import { MapPin, Bed, Bath, Maximize, ArrowRight, Search, IndianRupee } from "lucide-react";
+import { MapPin, Bed, Bath, Maximize, ArrowRight, IndianRupee } from "lucide-react";
 import { useState } from "react";
 
 const properties = [
@@ -29,7 +29,7 @@ const EstatePage = () => {
     <Layout>
       <PageHero
         title="Premium Real Estate"
-        subtitle="Discover handpicked premium properties in India's most sought-after locations"
+        subtitle="Discover handpicked luxury properties in India's most coveted addresses"
         backgroundImage={estateHero}
         ctaText="Browse Properties"
         ctaLink="#listings"
@@ -37,18 +37,17 @@ const EstatePage = () => {
 
       <section id="listings" className="section-padding bg-background">
         <div className="container-custom">
-          <SectionHeading badge="Properties" title="Find Your Dream Property" subtitle="Explore our curated collection of premium residential properties" />
+          <SectionHeading badge="Properties" title="Curated Luxury Residences" subtitle="Each property is personally vetted for quality, location, and investment potential" />
           
-          {/* Filters */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-14">
             {types.map((type) => (
               <button
                 key={type}
                 onClick={() => setFilter(type)}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                   filter === type
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-secondary text-foreground hover:bg-primary/10"
+                    ? "bg-primary text-primary-foreground shadow-lg"
+                    : "bg-secondary text-foreground hover:bg-primary/5 border border-border/50"
                 }`}
               >
                 {type}
@@ -56,35 +55,27 @@ const EstatePage = () => {
             ))}
           </div>
 
-          {/* Listings Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filtered.map((property, i) => (
-              <div key={i} className="group bg-background rounded-2xl overflow-hidden shadow-lg hover-lift border border-border/50">
+              <div key={i} className="group premium-card overflow-hidden">
                 <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={property.image}
-                    alt={property.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    loading="lazy"
-                    width={800}
-                    height={800}
-                  />
-                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-semibold">
+                  <img src={property.image} alt={property.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" width={800} height={800} />
+                  <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-primary/90 text-primary-foreground text-xs font-semibold backdrop-blur-sm">
                     {property.type}
                   </div>
-                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-primary/80 text-primary-foreground text-sm font-bold flex items-center gap-1">
+                  <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-background/90 text-foreground text-sm font-bold flex items-center gap-1 backdrop-blur-sm">
                     <IndianRupee className="w-3 h-3" />{property.price}
                   </div>
                 </div>
                 <div className="p-6">
                   <h3 className="font-heading font-semibold text-foreground text-lg mb-2">{property.title}</h3>
-                  <div className="flex items-center gap-1 text-muted-foreground text-sm mb-4">
+                  <div className="flex items-center gap-1 text-muted-foreground text-sm mb-5">
                     <MapPin className="w-4 h-4" /> {property.location}
                   </div>
-                  <div className="flex items-center justify-between pt-4 border-t border-border">
-                    <div className="flex items-center gap-1 text-sm text-muted-foreground"><Bed className="w-4 h-4" /> {property.beds}</div>
-                    <div className="flex items-center gap-1 text-sm text-muted-foreground"><Bath className="w-4 h-4" /> {property.baths}</div>
-                    <div className="flex items-center gap-1 text-sm text-muted-foreground"><Maximize className="w-4 h-4" /> {property.sqft} sqft</div>
+                  <div className="flex items-center justify-between pt-5 border-t border-border">
+                    <div className="flex items-center gap-1.5 text-sm text-muted-foreground"><Bed className="w-4 h-4" /> {property.beds}</div>
+                    <div className="flex items-center gap-1.5 text-sm text-muted-foreground"><Bath className="w-4 h-4" /> {property.baths}</div>
+                    <div className="flex items-center gap-1.5 text-sm text-muted-foreground"><Maximize className="w-4 h-4" /> {property.sqft} sqft</div>
                   </div>
                 </div>
               </div>
@@ -93,17 +84,16 @@ const EstatePage = () => {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="navy-section section-padding">
         <div className="container-custom text-center">
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-primary-foreground mb-4">
-            Can't Find What You're Looking For?
+          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-primary-foreground mb-5">
+            Looking for Something Specific?
           </h2>
-          <p className="text-primary-foreground/70 mb-8 max-w-xl mx-auto">
-            Tell us your requirements and we'll find the perfect property for you.
+          <p className="text-primary-foreground/50 mb-10 max-w-xl mx-auto leading-relaxed">
+            Share your requirements and our property consultants will curate the perfect selection for you.
           </p>
           <Link to="/contact">
-            <Button variant="hero" size="xl">Contact Us <ArrowRight className="w-5 h-5" /></Button>
+            <Button variant="hero-outline" size="xl">Get in Touch <ArrowRight className="w-5 h-5" /></Button>
           </Link>
         </div>
       </section>

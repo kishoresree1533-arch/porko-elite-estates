@@ -9,60 +9,58 @@ import heroHome from "@/assets/hero-home.jpg";
 import { ArrowRight, CheckCircle2, Sofa, Lamp, PaintBucket, Sparkles } from "lucide-react";
 
 const packages = [
-  { name: "Essential", price: "₹8 Lakh", features: ["Living Room Design", "2 Bedroom Interiors", "Modular Kitchen", "Basic Lighting"], popular: false },
-  { name: "Premium", price: "₹15 Lakh", features: ["Full Home Design", "Premium Materials", "False Ceiling", "Smart Lighting", "Wardrobes", "Accent Walls"], popular: true },
-  { name: "Luxury", price: "₹25 Lakh+", features: ["Bespoke Design", "Italian Marble", "Home Automation", "Designer Furniture", "Landscape Design", "Art Curation"], popular: false },
+  { name: "Essential", price: "₹8 Lakh", desc: "Thoughtfully designed essentials", features: ["Living Room Design", "2 Bedroom Interiors", "Modular Kitchen", "Basic Lighting"], popular: false },
+  { name: "Premium", price: "₹15 Lakh", desc: "Elevated living, refined detail", features: ["Full Home Design", "Premium Materials", "False Ceiling", "Smart Lighting", "Wardrobes", "Accent Walls"], popular: true },
+  { name: "Luxury", price: "₹25 Lakh+", desc: "Bespoke luxury, no compromises", features: ["Bespoke Design", "Italian Marble", "Home Automation", "Designer Furniture", "Landscape Design", "Art Curation"], popular: false },
 ];
 
 const gallery = [
-  { image: interiorHero, title: "Modern Living Room" },
-  { image: project3, title: "Luxury Bedroom" },
-  { image: heroHome, title: "Kitchen Design" },
-  { image: interiorHero, title: "Bathroom Suite" },
+  { image: interiorHero, title: "Contemporary Living Room" },
+  { image: project3, title: "Master Bedroom Suite" },
+  { image: heroHome, title: "Gourmet Kitchen" },
+  { image: interiorHero, title: "Spa Bathroom" },
 ];
 
 const InteriorsPage = () => {
   return (
     <Layout>
       <PageHero
-        title="Luxury Interior Design"
-        subtitle="Transform your space into a masterpiece with our award-winning interior design team"
+        title="Bespoke Interior Design"
+        subtitle="Spaces that reflect your taste — designed with precision, crafted with passion"
         backgroundImage={interiorHero}
       />
 
-      {/* Services */}
       <section className="section-padding bg-background">
         <div className="container-custom">
-          <SectionHeading badge="What We Offer" title="Interior Design Services" subtitle="Complete home interior solutions tailored to your lifestyle" />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <SectionHeading badge="Services" title="Interior Design Excellence" subtitle="Complete home interior solutions tailored to your lifestyle and vision" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { icon: Sofa, title: "Living Spaces", desc: "Elegant and functional living room designs" },
-              { icon: Lamp, title: "Bedroom Design", desc: "Restful sanctuaries tailored to your style" },
-              { icon: PaintBucket, title: "Kitchen & Bath", desc: "Modern modular kitchens and luxury bathrooms" },
-              { icon: Sparkles, title: "Smart Homes", desc: "Integrated home automation solutions" },
+              { icon: Sofa, title: "Living Spaces", desc: "Elegant, functional rooms designed for modern living" },
+              { icon: Lamp, title: "Bedroom Design", desc: "Restful sanctuaries tailored to your personal style" },
+              { icon: PaintBucket, title: "Kitchen & Bath", desc: "Premium modular kitchens and luxury bathrooms" },
+              { icon: Sparkles, title: "Smart Homes", desc: "Seamless home automation and intelligent lighting" },
             ].map((s, i) => (
-              <div key={i} className="bg-secondary rounded-2xl p-8 hover-lift group text-center">
-                <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-accent transition-colors">
-                  <s.icon className="w-7 h-7 text-accent group-hover:text-accent-foreground transition-colors" />
+              <div key={i} className="premium-card p-8 group text-center">
+                <div className="w-14 h-14 rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:border-primary transition-all duration-500">
+                  <s.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors duration-500" />
                 </div>
                 <h3 className="font-heading font-semibold text-foreground mb-2">{s.title}</h3>
-                <p className="text-sm text-muted-foreground">{s.desc}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Gallery */}
       <section className="section-padding bg-secondary">
         <div className="container-custom">
-          <SectionHeading badge="Portfolio" title="Our Interior Gallery" />
-          <div className="grid sm:grid-cols-2 gap-6">
+          <SectionHeading badge="Portfolio" title="Design Gallery" subtitle="A glimpse into spaces we've transformed" />
+          <div className="grid sm:grid-cols-2 gap-8">
             {gallery.map((item, i) => (
-              <div key={i} className="group relative rounded-2xl overflow-hidden h-72 lg:h-96">
-                <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                  <h3 className="text-background font-heading font-bold text-xl">{item.title}</h3>
+              <div key={i} className="group relative rounded-2xl overflow-hidden h-72 lg:h-96 shadow-lg">
+                <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-8">
+                  <h3 className="text-primary-foreground font-heading font-bold text-xl">{item.title}</h3>
                 </div>
               </div>
             ))}
@@ -70,24 +68,24 @@ const InteriorsPage = () => {
         </div>
       </section>
 
-      {/* Packages */}
       <section className="section-padding bg-background">
         <div className="container-custom">
-          <SectionHeading badge="Packages" title="Interior Design Packages" subtitle="Choose the package that suits your vision and budget" />
+          <SectionHeading badge="Investment" title="Interior Design Packages" subtitle="Select the tier that aligns with your vision and lifestyle" />
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {packages.map((pkg, i) => (
-              <div key={i} className={`rounded-2xl p-8 border-2 ${pkg.popular ? "border-accent bg-accent/5 relative" : "border-border bg-background"} hover-lift`}>
+              <div key={i} className={`rounded-2xl p-8 border-2 ${pkg.popular ? "border-primary bg-primary/3 relative shadow-xl" : "border-border bg-background"} hover-lift`}>
                 {pkg.popular && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-accent text-accent-foreground text-xs font-bold">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold shadow-lg">
                     Most Popular
                   </span>
                 )}
                 <h3 className="font-heading font-bold text-xl text-foreground mb-1">{pkg.name}</h3>
-                <div className="text-3xl font-heading font-bold text-accent mb-6">{pkg.price}</div>
+                <p className="text-sm text-muted-foreground mb-4">{pkg.desc}</p>
+                <div className="text-3xl font-heading font-bold text-primary mb-8">{pkg.price}</div>
                 <div className="flex flex-col gap-3 mb-8">
                   {pkg.features.map((f) => (
-                    <div key={f} className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-accent shrink-0" />
+                    <div key={f} className="flex items-center gap-3">
+                      <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
                       <span className="text-sm text-foreground">{f}</span>
                     </div>
                   ))}
@@ -103,15 +101,14 @@ const InteriorsPage = () => {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="navy-section section-padding">
         <div className="container-custom text-center">
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-primary-foreground mb-4">
-            Let's Design Your Dream Interior
+          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-primary-foreground mb-5">
+            Transform Your Space Into a Masterpiece
           </h2>
-          <p className="text-primary-foreground/70 mb-8 max-w-xl mx-auto">Book a free design consultation with our experts today</p>
+          <p className="text-primary-foreground/50 mb-10 max-w-xl mx-auto leading-relaxed">Book a complimentary design consultation with our award-winning team</p>
           <Link to="/contact">
-            <Button variant="hero" size="xl">Book Consultation <ArrowRight className="w-5 h-5" /></Button>
+            <Button variant="hero-outline" size="xl">Book Consultation <ArrowRight className="w-5 h-5" /></Button>
           </Link>
         </div>
       </section>
