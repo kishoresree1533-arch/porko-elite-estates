@@ -1,0 +1,32 @@
+# Download Instructions for Reference Site Images
+
+Please manually download these images from https://www.scchomes.in and save them to src/assets/ folder:
+
+## Hasthinapuram Image (as shown in your reference)
+URL: https://www.scchomes.in/uploads/property/3-4bhk-apartments-hasthinapuram-gayathri-nagar.jpg
+Save as: hasthinapuram-reference.jpg
+
+## Other Property Images from Reference Site:
+1. West Mambalam: https://www.scchomes.in/uploads/property/2-3bhk-apartments-west-mambalam-old-mambalam-road.jpg
+   Save as: west-mambalam-reference.jpg
+
+2. Chrompet: https://www.scchomes.in/uploads/property/2bhk-apartments-chrompet-near-railway-bus.jpg
+   Save as: chrompet-reference.jpg
+
+3. Injambakkam: https://www.scchomes.in/uploads/property/4-bhk-house-injambakkam-near-iskcon-temple-g2-villa.jpg
+   Save as: injambakkam-reference.jpg
+
+4. Medavakkam: https://www.scchomes.in/uploads/property/2-3-bhk-apartments-medavakkam-near-thiruvalluvar-nagar-park.jpg
+   Save as: medavakkam-reference.jpg
+
+5. Keelkattalai: https://www.scchomes.in/uploads/property/Villa.jpg
+   Save as: keelkattalai-reference.jpg
+
+## How to Download:
+1. Open your web browser
+2. Go to each URL above
+3. Right-click on the image and select "Save image as..."
+4. Save to: c:\xampp\htdocs\porko-elite-estates\src\assets\
+5. Use the exact filename specified
+
+After downloading all images, the TrendingProjects component will automatically use them.

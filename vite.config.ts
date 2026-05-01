@@ -19,4 +19,16 @@ export default defineConfig(({ mode }) => ({
     },
     dedupe: ["react", "react-dom", "react/jsx-runtime", "react/jsx-dev-runtime", "@tanstack/react-query", "@tanstack/query-core"],
   },
+  build: {
+    chunkSizeWarningLimit: 1500, // Increased to 1.5MB for initial load (avoids warning)
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom", "react-router-dom"],
+          animations: ["framer-motion"],
+          ui: ["lucide-react", "embla-carousel-react"],
+        },
+      },
+    },
+  },
 }));

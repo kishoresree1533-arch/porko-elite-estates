@@ -1,16 +1,20 @@
 import Layout from "@/components/Layout";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
+import CTASection from "@/components/CTASection";
+import WhyChooseSection from "@/components/WhyChooseSection";
+import ConstructionSupervision from "@/components/ConstructionSupervision";
+import MaterialGradeShowcase from "@/components/MaterialGradeShowcase";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import constructionHero from "@/assets/construction-hero.jpg";
+import constructionHeroImg from "@/assets/Cityscape Under Construction.jpg";
 import { ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 
 const packages = [
   {
     name: "Standard",
-    price: "₹1,699",
+    price: "₹1,999",
     unit: "/sq.ft",
     desc: "Quality construction with reliable materials",
     features: ["RCC Framed Structure", "Standard Cement (ACC/Ultratech)", "Basic Electrical & Plumbing", "Ceramic Tile Flooring", "Standard Doors & Windows"],
@@ -18,7 +22,7 @@ const packages = [
   },
   {
     name: "Premium",
-    price: "₹1,899",
+    price: "₹2,299",
     unit: "/sq.ft",
     desc: "Enhanced quality with premium finishes",
     features: ["RCC Framed Structure", "Premium Cement (Ultratech)", "Concealed Wiring (Havells)", "Vitrified Tile Flooring", "Teak Wood Doors", "False Ceiling in Living Area", "Premium Bathroom Fittings"],
@@ -26,7 +30,7 @@ const packages = [
   },
   {
     name: "Luxury",
-    price: "₹2,499",
+    price: "₹2,699",
     unit: "/sq.ft",
     desc: "Uncompromising luxury, finest materials",
     features: ["Advanced RCC Structure", "Premium OPC Cement", "Smart Home Wiring", "Italian Marble Flooring", "Solid Teak Doors & French Windows", "Full False Ceiling", "Jacuzzi & Premium Fixtures", "Landscape Design"],
@@ -50,7 +54,7 @@ const ConstructionPage = () => {
       <PageHero
         title="Premium House Construction"
         subtitle="Architecturally refined homes built with uncompromising quality and complete transparency"
-        backgroundImage={constructionHero}
+        backgroundImage={constructionHeroImg}
       />
 
       <section className="section-padding bg-background">
@@ -89,16 +93,30 @@ const ConstructionPage = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-secondary">
-        <div className="container-custom">
-          <SectionHeading badge="Quality Assurance" title="Trusted Material Partners" subtitle="We partner exclusively with India's finest building material brands" />
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+      <ConstructionSupervision />
+
+      <MaterialGradeShowcase />
+
+      <section className="section-padding bg-[#F8FAFC] relative overflow-hidden">
+        {/* Decorative background element */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #000 1px, transparent 0)', backgroundSize: '24px 24px' }} />
+        
+        <div className="container-custom relative z-10 transition-all duration-1000">
+          <SectionHeading badge="Quality Assurance" title="Trusted Material Partners" subtitle="We partner exclusively with India's finest building material brands to ensure your home lasts for generations" />
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             {["Ultratech Cement", "Tata Steel", "Havells Wiring", "Kajaria Tiles", "Jaquar Fittings", "Asian Paints"].map((brand) => (
-              <div key={brand} className="premium-card p-6 text-center">
-                <div className="w-12 h-12 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center mx-auto mb-3">
-                  <CheckCircle2 className="w-6 h-6 text-primary" />
+              <div key={brand} className="card-3d-effect group">
+                <div className="bg-primary rounded-3xl p-8 text-center border border-white/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.4)] group-hover:border-white/20 transition-all h-full flex flex-col items-center justify-center relative overflow-hidden">
+                  {/* Subtle glow effect */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 blur-3xl -translate-y-1/2 translate-x-1/2 rounded-full" />
+                  
+                  <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white/20 transition-all duration-500 shadow-inner relative z-10">
+                    <CheckCircle2 className="w-8 h-8 text-white" />
+                  </div>
+                  <span className="text-sm font-bold text-white tracking-tight relative z-10">{brand}</span>
+                  <div className="mt-3 w-8 h-1 bg-[#D4AF37] rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 relative z-10" />
                 </div>
-                <span className="text-sm font-medium text-foreground">{brand}</span>
               </div>
             ))}
           </div>
@@ -129,17 +147,11 @@ const ConstructionPage = () => {
         </div>
       </section>
 
-      <section className="navy-section section-padding">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold text-primary-foreground mb-5">
-            Begin Your Construction Journey Today
-          </h2>
-          <p className="text-primary-foreground/50 mb-10 max-w-xl mx-auto leading-relaxed">Receive a comprehensive, obligation-free project estimate from our construction experts</p>
-          <Link to="/contact">
-            <Button variant="hero-outline" size="xl">Get Free Estimate <ArrowRight className="w-5 h-5" /></Button>
-          </Link>
-        </div>
-      </section>
+      <CTASection 
+        title="Begin Your Construction Legacy"
+        subtitle="Receive a comprehensive, obligation-free project estimate from India's finest construction experts."
+        ctaText="Get Free Estimate"
+      />
     </Layout>
   );
 };

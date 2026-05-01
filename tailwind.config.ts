@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         heading: ["Poppins", "sans-serif"],
         body: ["Inter", "sans-serif"],
+        serif: ["Playfair Display", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -107,6 +108,10 @@ export default {
           "0%": { opacity: "0", transform: "scale(0.5)" },
           "100%": { opacity: "1", transform: "scale(1)" },
         },
+        "shimmer": {
+          "100%": { transform: "translateX(100%)" },
+        },
+
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -116,6 +121,8 @@ export default {
         "slide-in-left": "slide-in-left 0.6s ease-out forwards",
         "slide-in-right": "slide-in-right 0.6s ease-out forwards",
         "count-up": "count-up 0.4s ease-out forwards",
+        "shimmer": "shimmer 2s infinite",
+
       },
     },
   },
